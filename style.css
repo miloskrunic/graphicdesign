@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    overflow: -moz-scrollbars-none; /* For Firefox */
+    scrollbar-width: none; /* For Firefox */
 }
 
 section{
@@ -30,7 +31,9 @@ section{
 }
 
 .three{
-    background: lightgrey;
+    background: #141414;
+    position: relative;
+    overflow: hidden;
 }
 
 .body{
@@ -103,4 +106,21 @@ a {
 
 .gallery-item:hover .overlay-text {
     opacity: 1;
+}
+
+#image-track {
+    display: flex;
+    position: absolute;
+    gap: 12vmin;
+    left: 50%;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+  
+#image-track > .image{
+    width: 32vmin;
+    height: 64vmin;
+    object-fit: cover;
+    object-position: 100% 50%;
+    user-select: none;
 }
