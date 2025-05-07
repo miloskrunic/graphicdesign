@@ -153,3 +153,31 @@ a {
 .lightbox.active {
     display: flex;
 }
+
+
+@media (max-width: 480px) {
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem; /* Manji razmak na mobilnim uređajima */
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    .gallery-item {
+        width: 9rem; /* Dve stavke u redu na mobilnim uređajima */
+    }
+    .header{
+        padding:1rem;
+    }
+
+    #image-track > .image{
+        width: 64vmin;
+        height: 128vmin;
+        object-fit: cover;
+        object-position: 100% 50%;
+        user-select: none;
+        cursor: pointer;
+    }
+}
