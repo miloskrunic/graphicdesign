@@ -67,3 +67,37 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 // Pokreni observer
 observer.observe(target);
+
+
+
+
+
+
+
+
+const overlayTexts = document.querySelectorAll('.overlay-text');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+
+overlayTexts.forEach((overlay) => {
+  overlay.addEventListener('click', (event) => {
+    // sprečavanje da klik na overlay zatvori lightbox odmah
+    event.stopPropagation();
+
+    // Preuzimanje slike koja je vezana za tekst
+    const img = overlay.previousElementSibling; // pretpostavljam da je img uvek pre overlay-a
+    lightboxImg.src = img.src;
+    lightbox.classList.add('active');
+  });
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+  lightboxImg.src = '';
+});
+
+
+window.onload = function() {
+  window.scrollTo(0, 0);
+  typeEffect1();
+};
