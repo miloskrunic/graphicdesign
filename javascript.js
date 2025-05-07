@@ -97,6 +97,24 @@ lightbox.addEventListener('click', () => {
 });
 
 
+
+const galleryItems = document.querySelectorAll('#image-track img');
+
+
+galleryItems.forEach((img) => {
+
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src; 
+    lightbox.classList.add('active');
+  });
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+  lightboxImg.src = ''; 
+});
+
+
 window.onload = function() {
   window.scrollTo(0, 0);
   typeEffect1();

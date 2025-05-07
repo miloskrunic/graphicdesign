@@ -128,6 +128,7 @@ a {
     object-fit: cover;
     object-position: 100% 50%;
     user-select: none;
+    cursor: pointer;
 }
 
 .lightbox {
