@@ -1,77 +1,76 @@
-// Prvo pronađi element koji želiš da posmatraš
 const target = document.querySelector('.three');
 
-// Napravi observer
+const handleOnDown = e => {
+  const track = document.getElementById("image-track");
+  track.dataset.mouseDownAt = e.clientX;
+};
+
+const handleOnUp = () => {
+  const track = document.getElementById("image-track");
+  track.dataset.mouseDownAt = "0";  
+  track.dataset.prevPercentage = track.dataset.percentage;
+};
+
+const handleOnMove = e => {
+  const track = document.getElementById("image-track");
+  const thumb = document.querySelector(".thumb");
+
+  if (track.dataset.mouseDownAt === "0") return;
+  
+  const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+        maxDelta = window.innerWidth / 2;
+
+  const percentage = (mouseDelta / maxDelta) * -100,
+        nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
+        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+
+  track.dataset.percentage = nextPercentage;
+
+  track.animate({
+    transform: `translate(${nextPercentage}%, -50%)`
+  }, { duration: 1200, fill: "forwards" });
+
+  for (const image of track.getElementsByClassName("image")) {
+    image.animate({
+      objectPosition: `${100 + nextPercentage}% center`
+    }, { duration: 1200, fill: "forwards" });
+  }
+
+  const trackWidth = document.querySelector(".track").offsetWidth;
+  const thumbPos = (nextPercentage / -100) * trackWidth;
+  thumb.style.left = `${thumbPos}px`;
+};
+
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
-    console.log("Vidim treci element")
     if (entry.isIntersecting) {
-        const track = document.getElementById("image-track");
-        const thumb = document.querySelector(".thumb"); // Pronađi thumb
+      console.log("➡️ Aktiviram evente za .three");
 
-        const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
-        
-        const handleOnUp = () => {
-          track.dataset.mouseDownAt = "0";  
-          track.dataset.prevPercentage = track.dataset.percentage;
-        }
-        
-        const handleOnMove = e => {
-          if(track.dataset.mouseDownAt === "0") return;
-          
-          const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-                maxDelta = window.innerWidth / 2;
-          
-          const percentage = (mouseDelta / maxDelta) * -100,
-                nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
-                nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-          
-          track.dataset.percentage = nextPercentage;
-          
-          // Pomeri track
-          track.animate({
-            transform: `translate(${nextPercentage}%, -50%)`
-          }, { duration: 1200, fill: "forwards" });
-          
-          // Pomeri slike unutar track-a
-          for(const image of track.getElementsByClassName("image")) {
-            image.animate({
-              objectPosition: `${100 + nextPercentage}% center`
-            }, { duration: 1200, fill: "forwards" });
-          }
+      window.addEventListener("mousedown", handleOnDown);
+      window.addEventListener("touchstart", e => handleOnDown(e.touches[0]));
 
-          // Pomeri thumb (tacku) u skladu sa pomeranjem galerije
-          const trackWidth = document.querySelector(".track").offsetWidth;
-          const thumbPos = (nextPercentage / -100) * trackWidth;  // Izračunaj poziciju thumb-a
-          thumb.style.left = `${thumbPos}px`;  // Pomeri thumb
-        }
+      window.addEventListener("mouseup", handleOnUp);
+      window.addEventListener("touchend", e => handleOnUp(e.touches[0]));
 
-        /* -- Had to add extra lines for touch events -- */
-        
-        window.onmousedown = e => handleOnDown(e);
-        
-        window.ontouchstart = e => handleOnDown(e.touches[0]);
-        
-        window.onmouseup = e => handleOnUp(e);
-        
-        window.ontouchend = e => handleOnUp(e.touches[0]);
-        
-        window.onmousemove = e => handleOnMove(e);
-        
-        window.ontouchmove = e => handleOnMove(e.touches[0]);
-        
-      console.log('Element je ušao u viewport!');
+      window.addEventListener("mousemove", handleOnMove);
+      window.addEventListener("touchmove", e => handleOnMove(e.touches[0]));
+    } else {
+      console.log("⬅️ Deaktiviram evente za .three");
 
-      // Ako želiš da se kod izvrši samo jednom, onda:
-      observer.unobserve(entry.target);
+      window.removeEventListener("mousedown", handleOnDown);
+      window.removeEventListener("touchstart", e => handleOnDown(e.touches[0]));
+
+      window.removeEventListener("mouseup", handleOnUp);
+      window.removeEventListener("touchend", e => handleOnUp(e.touches[0]));
+
+      window.removeEventListener("mousemove", handleOnMove);
+      window.removeEventListener("touchmove", e => handleOnMove(e.touches[0]));
     }
   });
 }, {
-  threshold: 0.9 // 50% elementa mora biti u viewportu
+  threshold: 0.3
 });
 
-
-// Pokreni observer
 observer.observe(target);
 
 // Lightbox kod
@@ -122,10 +121,7 @@ lightbox.addEventListener('click', () => {
 
 const canvas = document.querySelector('.fluid-cursor');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
-// Postavi dimenzije canvasa
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -133,60 +129,79 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// Postavljene dimenzije canvasa
-
 let particles = [];
+let animationFrameId = null;
 
-// Funkcija koja kreira čestice na poziciji miša
 function createParticle(x, y) {
-    
   particles.push({
     x: x,
     y: y,
-    size: Math.random() * 20 + 15,  // Random veličina čestica
-    speedX: (Math.random() - 0.5) * 2,  // Random kretanje po X
-    speedY: (Math.random() - 0.5) * 2,  // Random kretanje po Y
-    opacity: 0.7,  // Početna opacnost čestice
+    size: Math.random() * 20 + 15,
+    speedX: (Math.random() - 0.5) * 2,
+    speedY: (Math.random() - 0.5) * 2,
+    opacity: 0.7,
   });
 }
 
-// Animacija koja crta čestice i pravi razlivanje boje
 function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);  // Čisti canvas na svakom frame-u
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   particles.forEach((particle, index) => {
-    // Crtanje čestice u obliku kruga
     ctx.beginPath();
     ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(33, 3, 38, ${particle.opacity})`;  // Ružičasta boja sa promenljivom opacnošću
+    ctx.fillStyle = `rgba(33, 3, 38, ${particle.opacity})`;
     ctx.fill();
 
-    // Kretanje čestice
     particle.x += particle.speedX;
     particle.y += particle.speedY;
-    particle.size *= 0.98;  // Čestica se smanjuje
-    particle.opacity -= 0.01;  // Smanjujemo opacnost
+    particle.size *= 0.98;
+    particle.opacity -= 0.01;
 
-    // Ako čestica nestane (mali radius ili opacnost), brišemo je
     if (particle.opacity <= 0 || particle.size <= 1) {
       particles.splice(index, 1);
     }
   });
 
-  requestAnimationFrame(animate);  // Traži sledeći frame
+  animationFrameId = requestAnimationFrame(animate);
 }
 
-// Pratimo kretanje miša i dodajemo čestice na poziciji kursora
-document.addEventListener('mousemove', (e) => {
+// 💡 Funkcija za upravljanje česticama
+function enableParticles() {
+  document.addEventListener('mousemove', mouseMoveHandler);
+  animate();
+}
 
+function disableParticles() {
+  document.removeEventListener('mousemove', mouseMoveHandler);
+  cancelAnimationFrame(animationFrameId);
+  particles = []; // očisti sve čestice
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
 
-console.log("RADI LI OVO")
+// 🎯 Handler za miša (poseban da može da se ukloni)
+function mouseMoveHandler(e) {
+  createParticle(e.clientX, e.clientY);
+}
 
-  createParticle(e.clientX, e.clientY);  // Kreiramo česticu na poziciji miša
+// 🧠 Intersection Observer za section.one
+const sectionOne = document.querySelector('.one');
+
+const observerOne = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      console.log("🔥 Ušao u sekciju 1 - palim čestice");
+      enableParticles();
+    } else {
+      console.log("🧯 Izašao iz sekcije 1 - gasim čestice");
+      disableParticles();
+    }
+  });
+}, {
+  threshold: 0.3
 });
 
-// Početak animacije
-animate();
+observerOne.observe(sectionOne);
+
 
 //onload animacija
 
