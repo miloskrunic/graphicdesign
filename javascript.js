@@ -126,6 +126,16 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+// Postavi dimenzije canvasa
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+// Postavljene dimenzije canvasa
+
 let particles = [];
 
 // Funkcija koja kreira čestice na poziciji miša
