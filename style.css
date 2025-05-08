@@ -78,7 +78,7 @@ section{
 ul {
     display: flex;
     list-style: none;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 a {
@@ -116,6 +116,10 @@ a {
     padding-right:1rem;
     z-index: 2;
     font-size:2rem;
+}
+
+.underline{
+    border-bottom: 1px solid white;
 }
 
 .footer{
@@ -278,6 +282,48 @@ a {
         margin: 1rem;
         padding: 1rem;
     }
+}
+
+/* Onload section 1 animacija*/
+
+.right{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-10%);
+    transition: all 1s;
+}
+
+.left{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(10%);
+    transition: all 1s;
+}
+
+.gallery-right{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-50%);
+    transition: all 1s;
+}
+
+.gallery-left{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(50%);
+    transition: all 1s;
+}
+
+.gallery-middle{
+    opacity:0;
+    transition: all 2s;
+}
+
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
 }
   
 
