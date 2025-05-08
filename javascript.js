@@ -137,7 +137,7 @@ function createParticle(x, y) {
     size: Math.random() * 20 + 15,  // Random veličina čestica
     speedX: (Math.random() - 0.5) * 2,  // Random kretanje po X
     speedY: (Math.random() - 0.5) * 2,  // Random kretanje po Y
-    opacity: 1,  // Početna opacnost čestice
+    opacity: 0.7,  // Početna opacnost čestice
   });
 }
 
@@ -149,7 +149,7 @@ function animate() {
     // Crtanje čestice u obliku kruga
     ctx.beginPath();
     ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(179, 179, 179, ${particle.opacity})`;  // Ružičasta boja sa promenljivom opacnošću
+    ctx.fillStyle = `rgba(33, 3, 38, ${particle.opacity})`;  // Ružičasta boja sa promenljivom opacnošću
     ctx.fill();
 
     // Kretanje čestice
