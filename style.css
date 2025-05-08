@@ -329,7 +329,7 @@ a {
 
 
 
-.one {background: radial-gradient(100% 100% at var(--9-x-position) var(--9-y-position), #141414 0%, transparent),radial-gradient(100% 100% at var(--10-x-position) var(--10-y-position), #191919 0%, transparent),radial-gradient(100% 100% at var(--11-x-position) var(--11-y-position), #1e1e1e 0%, transparent),radial-gradient(100% 100% at var(--12-x-position) var(--12-y-position), #232323 0%, transparent),#310a38;animation-name: main; animation-iteration-count: infinite; animation-duration: 3s; transition-timing-function: ease-in;}@property --9-x-position {
+.one {background: radial-gradient(100% 100% at var(--9-x-position) var(--9-y-position), #141414 0%, transparent),radial-gradient(100% 100% at var(--10-x-position) var(--10-y-position), #191919 0%, transparent),radial-gradient(100% 100% at var(--11-x-position) var(--11-y-position), #1e1e1e 0%, transparent),radial-gradient(100% 100% at var(--12-x-position) var(--12-y-position), #232323 0%, transparent),#310a38;animation-name: main; animation-iteration-count: infinite; animation-duration: 6s; transition-timing-function: ease-in;}@property --9-x-position {
     syntax: '<percentage>';
       inherits: false;
       initial-value: 99.0234375%;
