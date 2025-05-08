@@ -1,16 +1,13 @@
-
-
-console.log("RADI LI OVO")
-
-
 // Prvo pronađi element koji želiš da posmatraš
 const target = document.querySelector('.three');
 
 // Napravi observer
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
+    console.log("Vidim treci element")
     if (entry.isIntersecting) {
         const track = document.getElementById("image-track");
+        const thumb = document.querySelector(".thumb"); // Pronađi thumb
 
         const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
         
@@ -31,17 +28,24 @@ const observer = new IntersectionObserver((entries, observer) => {
           
           track.dataset.percentage = nextPercentage;
           
+          // Pomeri track
           track.animate({
             transform: `translate(${nextPercentage}%, -50%)`
           }, { duration: 1200, fill: "forwards" });
           
+          // Pomeri slike unutar track-a
           for(const image of track.getElementsByClassName("image")) {
             image.animate({
               objectPosition: `${100 + nextPercentage}% center`
             }, { duration: 1200, fill: "forwards" });
           }
+
+          // Pomeri thumb (tacku) u skladu sa pomeranjem galerije
+          const trackWidth = document.querySelector(".track").offsetWidth;
+          const thumbPos = (nextPercentage / -100) * trackWidth;  // Izračunaj poziciju thumb-a
+          thumb.style.left = `${thumbPos}px`;  // Pomeri thumb
         }
-        
+
         /* -- Had to add extra lines for touch events -- */
         
         window.onmousedown = e => handleOnDown(e);
@@ -55,6 +59,7 @@ const observer = new IntersectionObserver((entries, observer) => {
         window.onmousemove = e => handleOnMove(e);
         
         window.ontouchmove = e => handleOnMove(e.touches[0]);
+        
       console.log('Element je ušao u viewport!');
 
       // Ako želiš da se kod izvrši samo jednom, onda:
@@ -62,17 +67,14 @@ const observer = new IntersectionObserver((entries, observer) => {
     }
   });
 }, {
-  threshold: 0.5 // 50% elementa mora biti u viewportu
+  threshold: 0.9 // 50% elementa mora biti u viewportu
 });
+
 
 // Pokreni observer
 observer.observe(target);
 
-
-
-
-
-
+// Lightbox kod
 
 
 const overlayTexts = document.querySelectorAll('.overlay-text');
@@ -114,12 +116,9 @@ lightbox.addEventListener('click', () => {
   lightboxImg.src = ''; 
 });
 
+// Kraj lightbox koda
 
-
-
-
-
-
+// Kreiranje cestica na poziciji misa krece ovde
 
 const canvas = document.querySelector('.fluid-cursor');
 const ctx = canvas.getContext('2d');
