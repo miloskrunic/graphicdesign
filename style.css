@@ -98,7 +98,7 @@ a {
 
 .short-text{
     width: 100%;
-    max-width: 62.5rem;
+    max-width: 76rem;
     text-align: left;
     margin-top: 20vh;
     margin-bottom:10vh;
@@ -111,7 +111,7 @@ a {
 
 .contact-me{
     width: 100%;  /* Neka bude 100% širine roditelja */
-    max-width: 62.5rem;  /* Ograničena širina */
+    max-width: 76rem;  /* Ograničena širina */
     text-align: left;
     padding-left:1rem;
     padding-right:1rem;
