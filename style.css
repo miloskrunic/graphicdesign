@@ -153,7 +153,7 @@ a {
 }
 
 .gallery-item img {
-    width: 100%;
+    width: clamp(10rem, 15vw, 18rem);
     height: auto;
     object-fit: cover;
     border-radius: 8px; 
@@ -365,11 +365,15 @@ a {
         padding-bottom: 5rem;
     }
 
-    .gallery-item {
-        width: 9rem; /* Dve stavke u redu na mobilnim uređajima */
+    .gallery-item img{
+        max-width: 400px;
+        width: 100%;
+        height: auto;
     }
     .header{
         padding:1rem;
+        margin: 0;
+        padding: 0;
     }
 
     .short-text{
@@ -394,25 +398,9 @@ a {
         cursor: pointer;
     }
 
-    .massage, .architect, .mua{
-        opacity: 0;
-        filter: blur(5px);
-        transform: translateX(-50%);
-        transition: all 1s;
-    }
-    
-    .robotics, .printing, .villa{
-        opacity: 0;
-        filter: blur(5px);
-        transform: translateX(50%);
-        transition: all 1s;
-    }
 
-    .show {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateX(0);
-    }
+
+
     
 }
 
@@ -437,4 +425,33 @@ a {
         margin: 1rem;
         padding: 1rem;
     }
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6rem;
+        max-width: 1200px;
+        margin: 0;
+        padding: 40px 20px;
+    }
+    
+    .massage, .architect, .mua{
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(-50%);
+        transition: all 1s;
+    }
+    
+    .robotics, .printing, .villa{
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(50%);
+        transition: all 1s;
+    }
+
+    .show {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+
 }
