@@ -453,5 +453,7 @@ a {
         filter: blur(0);
         transform: translateX(0);
     }
-
+    .overlay-text {
+        font-size: 1.5rem;
+    }
 }
