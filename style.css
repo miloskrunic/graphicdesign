@@ -154,9 +154,9 @@ a {
 
 .gallery-item img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 8px; 
     transition: opacity 0.1s ease;
 }
 
@@ -264,68 +264,6 @@ a {
   }
 
 
-@media (max-width: 480px) {
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 2rem; /* Manji razmak na mobilnim uređajima */
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
-
-    .gallery-item {
-        width: 9rem; /* Dve stavke u redu na mobilnim uređajima */
-    }
-    .header{
-        padding:1rem;
-    }
-
-    .short-text{
-        font-size:1.5rem;
-        margin-top: 5rem;
-    }
-    .contact-me{
-        font-size:1rem;
-    }
-    .footer{
-        margin: 0;
-        padding: 0;
-        justify-content: center;
-    }
-
-    #image-track > .image{
-        width: 64vmin;
-        height: 128vmin;
-        object-fit: cover;
-        object-position: 100% 50%;
-        user-select: none;
-        cursor: pointer;
-    }
-}
-
-@media(max-width:360px){
-    .header{
-        font-size: 1rem;
-    }
-
-    .short-text{
-        margin-top:3rem;
-    }
-}
-
-@media (max-width: 820px) {
-    .short-text{
-        font-size:2rem;
-    }
-    .contact-me{
-        font-size: 1.5rem;
-    }
-    .header{
-        margin: 1rem;
-        padding: 1rem;
-    }
-}
 
 /* Onload section 1 animacija*/
 
@@ -343,24 +281,25 @@ a {
     transition: all 1s;
 }
 
-.gallery-right{
+.massage, .printing{
     opacity: 0;
     filter: blur(5px);
     transform: translateX(-50%);
     transition: all 1s;
 }
 
-.gallery-left{
+.architect, .villa{
     opacity: 0;
     filter: blur(5px);
     transform: translateX(50%);
     transition: all 1s;
 }
 
-.gallery-middle{
+.mua, .robotics{
     opacity:0;
     transition: all 2s;
 }
+
 
 
 .show{
@@ -416,8 +355,86 @@ a {
   }
   
   
-  
-  
-  
-  
-  
+  @media (max-width: 480px) {
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem; /* Manji razmak na mobilnim uređajima */
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    .gallery-item {
+        width: 9rem; /* Dve stavke u redu na mobilnim uređajima */
+    }
+    .header{
+        padding:1rem;
+    }
+
+    .short-text{
+        font-size:1.5rem;
+        margin-top: 5rem;
+    }
+    .contact-me{
+        font-size:1rem;
+    }
+    .footer{
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+    }
+
+    #image-track > .image{
+        width: 64vmin;
+        height: 128vmin;
+        object-fit: cover;
+        object-position: 100% 50%;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .massage, .architect, .mua{
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(-50%);
+        transition: all 1s;
+    }
+    
+    .robotics, .printing, .villa{
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(50%);
+        transition: all 1s;
+    }
+
+    .show {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+    
+}
+
+@media(max-width:360px){
+    .header{
+        font-size: 1rem;
+    }
+
+    .short-text{
+        margin-top:3rem;
+    }
+}
+
+@media (max-width: 820px) {
+    .short-text{
+        font-size:2rem;
+    }
+    .contact-me{
+        font-size: 1.5rem;
+    }
+    .header{
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
