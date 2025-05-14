@@ -1,0 +1,159 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: -moz-scrollbars-none; /* For Firefox */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.montserrat-fontarinjo {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.body{
+  display: flex;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+section{
+  height: 100vh;
+  color: white;
+  scroll-snap-align: start;
+}
+
+.container{
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  max-width: 100%;
+  min-height: 0;
+  overflow-x: hidden;
+
+}
+
+
+.header {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 14rem 1rem 14rem;
+  background-color: #151515;
+  font-family: "Roboto",sans-serif; 
+  position: relative;
+  z-index: 2;
+  height: 7vh;
+  font-size: 1.5rem;
+}
+
+.header-text{
+  color:white;
+  white-space: nowrap;
+
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.one {background: radial-gradient(100% 100% at var(--9-x-position) var(--9-y-position), #141414 0%, transparent),radial-gradient(100% 100% at var(--10-x-position) var(--10-y-position),
+  #191919 0%, transparent),radial-gradient(100% 100% at var(--11-x-position) var(--11-y-position), #1e1e1e 0%, transparent),radial-gradient(100% 100% at var(--12-x-position)
+   var(--12-y-position), #232323 0%, transparent),#310a38;animation-name: main; animation-iteration-count: infinite; animation-duration: 6s; transition-timing-function: ease-in;}
+   @property --9-x-position {
+ syntax: '<percentage>';
+   inherits: false;
+   initial-value: 99.0234375%;
+ }@property --9-y-position {
+   syntax: '<percentage>';
+     inherits: false;
+     initial-value: 0%;
+   }@property --10-x-position {
+ syntax: '<percentage>';
+   inherits: false;
+   initial-value: 0%;
+ }@property --10-y-position {
+   syntax: '<percentage>';
+     inherits: false;
+     initial-value: 99.0234375%;
+   }@property --11-x-position {
+ syntax: '<percentage>';
+   inherits: false;
+   initial-value: 0%;
+ }@property --11-y-position {
+   syntax: '<percentage>';
+     inherits: false;
+     initial-value: 0%;
+   }@property --12-x-position {
+ syntax: '<percentage>';
+   inherits: false;
+   initial-value: 99.0234375%;
+ }@property --12-y-position {
+   syntax: '<percentage>';
+     inherits: false;
+     initial-value: 99.0234375%;
+   }:root {--5-x-position: 50.01978490259743%;--5-y-position: 13.789062500000002%;--6-x-position: 14.41558441558437%;--6-y-position: 66.09375%;--7-x-position: 84.46428571428571%;
+     --7-y-position: 70.0390625%;--9-x-position: 99.0234375%;--9-y-position: 0%;--10-x-position: 0%;--10-y-position: 99.0234375%;--11-x-position: 0%;--11-y-position: 0%;
+     --12-x-position: 99.0234375%;--12-y-position: 99.0234375%;}
+@keyframes main {
+ 25% {--9-x-position: 15%;--9-y-position: 15%;--10-x-position: 85%;--10-y-position: 80%;}50% {--9-x-position: 80%;--9-y-position: 15%;--10-x-position: 15%;--10-y-position: 85%;
+     --11-x-position: 20%;--11-y-position: 20%;--12-x-position: 20%;--12-y-position: 20%;}
+}
+
+
+
+
+
+@media (max-width: 480px) {
+  .header{
+      padding:1rem;
+      margin: 0;
+      padding: 0;
+  }
+
+  
+}
+
+@media(max-width:360px){
+  .header{
+      font-size: 1rem;
+  }
+
+}
+
+@media (max-width: 820px) {
+
+  .header{
+      margin: 1rem;
+      padding: 1rem;
+  }
+
+}

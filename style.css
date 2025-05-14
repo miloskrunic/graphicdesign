@@ -122,6 +122,8 @@ a {
 }
 
 .underline{
+    all: unset;
+    cursor: pointer;
     border-bottom: 1px solid white;
 }
 
