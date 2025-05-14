@@ -13,31 +13,14 @@
     font-style: normal;
   }
   
-
-.body{
-    display: flex;
-}
-
 body {
     font-family: "Montserrat", sans-serif;
   }
 
 section{
     height: 100vh;
-    color: white;
-    scroll-snap-align: start;
+    color:white;
 }
-
-.container{
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-    max-width: 100%;
-    min-height: 0;
-    overflow-x: hidden;
-
-}
-
 
 .header {
     display:flex;
@@ -69,6 +52,114 @@ a {
     color: white;
 }
 
+.section-contact{
+  height:93vh;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.section-contact .container{
+  max-width: 1280px;
+  margin:0 auto;
+
+  padding-left: 32px;
+  padding-right: 32px;
+
+  @media (min-width:768px){
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  @media (min-width:1024px){
+    padding-left: 128px;
+    padding-right: 128px;
+  }
+}
+
+h1{
+  font-size: 36px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+p{
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  color: #888;
+}
+
+form{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  background-color: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 12px rgba(0, 0 ,0, 0.2);
+
+  @media (min-width:768px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-group label{
+  display:block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #888;
+}
+
+.form-element{
+  appearance: none;
+  outline: none;
+  border: none;
+
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background-color: #F3F3F3;
+  transition: 0.4s;
+}
+
+.form-element:focus{
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+textarea{
+  resize: none;
+  min-height: 100px;
+}
+
+.form-group.full{
+  grid-column: 1 / -1;
+}
+
+.submit-group{
+  grid-column: 1 / -1;
+  text-align: right;
+}
+
+.submit-group input[type="submit"] {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+
+  padding: 12px 16px;
+  background-color: pink;
+  border-radius: 8px;
+  color:white;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.submit-group input[type="submit"]:hover {
+  background-color: purple;
+}
 
 
 
@@ -80,12 +171,7 @@ a {
 
 
 
-
-
-
-
-
-.one {background: radial-gradient(100% 100% at var(--9-x-position) var(--9-y-position), #141414 0%, transparent),radial-gradient(100% 100% at var(--10-x-position) var(--10-y-position),
+body {background: radial-gradient(100% 100% at var(--9-x-position) var(--9-y-position), #141414 0%, transparent),radial-gradient(100% 100% at var(--10-x-position) var(--10-y-position),
     #191919 0%, transparent),radial-gradient(100% 100% at var(--11-x-position) var(--11-y-position), #1e1e1e 0%, transparent),radial-gradient(100% 100% at var(--12-x-position)
      var(--12-y-position), #232323 0%, transparent),#310a38;animation-name: main; animation-iteration-count: infinite; animation-duration: 6s; transition-timing-function: ease-in;}
      @property --9-x-position {
