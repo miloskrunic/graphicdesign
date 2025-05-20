@@ -2,8 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: -moz-scrollbars-none; /* For Firefox */
-  scrollbar-width: none; /* For Firefox */
+
 }
 
 .montserrat-fontarinjo {
@@ -18,13 +17,16 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-section{
-  height: 100vh;
-  color:white;
-
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
-.container{
+section{
+  color:white;
+}
+
+/*.container{
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
@@ -32,7 +34,7 @@ section{
   min-height: 0;
   overflow-x: hidden;
 
-}
+}*/
 
 
 .header {
@@ -70,6 +72,154 @@ a {
 
 
 
+
+.section-contact{
+  padding-top: 100px;
+  padding-bottom: 50px;
+
+  @media (max-width: 768px)
+  {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  @media (max-width: 480px)
+  {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+.section-contact .container{
+  max-width: 1280px;
+  margin:0 auto;
+
+  padding-left: 32px;
+  padding-right: 32px;
+
+  @media (min-width:768px){
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  @media (min-width:1024px){
+    padding-left: 128px;
+    padding-right: 128px;
+  }
+}
+
+
+
+h1{
+  font-size: 36px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+
+.picture-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  margin-left: 64px;
+  margin-right: 64px;
+  @media (max-width: 768px){
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+
+}
+
+.myself{
+  width: 100%;
+  max-width: 500px;
+  
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.name{
+  text-align: center;
+  font-size: 24px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  color: white;
+  @media (max-width:400px){
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+.history{
+  text-align: center;
+  font-size: 18px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+  color: #888;
+  text-align: justify;
+  line-height: 1.5;
+
+  @media (max-width:400px){
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+
+.social-traka {
+  display: flex;
+  justify-content: center;
+  gap: 40px;              
+  padding: 10px 0;
+}
+
+.social-traka a {
+  color: white;
+  font-size: 30px;
+  transition: color 0.3s;
+}
+
+.social-traka a:hover {
+  color: #571563;
+}
+
+
+
+
+
+h1{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-10%);
+  transition: all 1s;
+}
+
+.name{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(10%);
+  transition: all 1s;
+}
+
+.social-traka{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(40%);
+  transition: all 1s;
+}
+
+.picture-container{
+  opacity:0;
+  transition: all 2s;
+}
+
+.show{
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+  transform: translateY(0);
+}
 
 
 
@@ -124,7 +274,11 @@ body {background: radial-gradient(100% 100% at var(--9-x-position) var(--9-y-pos
      --11-x-position: 20%;--11-y-position: 20%;--12-x-position: 20%;--12-y-position: 20%;}
 }
 
-
+body{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 
 
