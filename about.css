@@ -2,11 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none; 
 }
 
 .montserrat-fontarinjo {
   font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.league-spartan{
+  font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -26,15 +34,6 @@ section{
   color:white;
 }
 
-/*.container{
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-  max-width: 100%;
-  min-height: 0;
-  overflow-x: hidden;
-
-}*/
 
 
 .header {
@@ -43,7 +42,7 @@ section{
   align-items: center;
   padding: 1rem 14rem 1rem 14rem;
   background-color: #151515;
-  font-family: "Roboto",sans-serif; 
+  font-family: "League Spartan",sans-serif; 
   position: relative;
   z-index: 2;
   height: 7vh;
@@ -53,7 +52,7 @@ section{
 .header-text{
   color:white;
   white-space: nowrap;
-
+  padding-right: 30px;
 }
 
 ul {

@@ -44,7 +44,6 @@ const handleOnMove = e => {
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      console.log("➡️ Aktiviram evente za .three");
 
       window.addEventListener("mousedown", handleOnDown);
       window.addEventListener("touchstart", e => handleOnDown(e.touches[0]));
@@ -55,7 +54,6 @@ const observer = new IntersectionObserver((entries, observer) => {
       window.addEventListener("mousemove", handleOnMove);
       window.addEventListener("touchmove", e => handleOnMove(e.touches[0]));
     } else {
-      console.log("⬅️ Deaktiviram evente za .three");
 
       window.removeEventListener("mousedown", handleOnDown);
       window.removeEventListener("touchstart", e => handleOnDown(e.touches[0]));
@@ -189,10 +187,8 @@ const sectionOne = document.querySelector('.one');
 const observerOne = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      console.log("🔥 Ušao u sekciju 1 - palim čestice");
       enableParticles();
     } else {
-      console.log("🧯 Izašao iz sekcije 1 - gasim čestice");
       disableParticles();
     }
   });
