@@ -150,6 +150,11 @@ textarea{
   min-height: 100px;
 }
 
+.form-element{
+  font-family: "Montserrat", sans-serif;
+  font-size: medium;
+}
+
 .form-group.full{
   grid-column: 1 / -1;
 }
