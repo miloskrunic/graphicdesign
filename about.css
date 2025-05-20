@@ -288,13 +288,37 @@ body{
       padding: 0;
   }
 
+  .header{
+    font-size: 1.1rem;
+}
+
+ul{
+    font-size: 1.1rem;
+}
+
+.header-text{
+    padding-right: 30px;
+}
+
+  .header{
+    font-size: 1.1rem;
+  }
+
+  ul{
+    font-size: 1rem;
+  }
+
   
 }
 
 @media(max-width:360px){
-  .header{
+    .header{
+      font-size: 1.1rem;
+    }
+
+    ul{
       font-size: 1rem;
-  }
+    }
 
 }
 

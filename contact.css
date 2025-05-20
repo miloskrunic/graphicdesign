@@ -252,12 +252,29 @@ body {background: radial-gradient(100% 100% at var(--9-x-position) var(--9-y-pos
         padding: 0;
     }
 
+        .header{
+        font-size: 1.1rem;
+    }
+
+    ul{
+        font-size: 1.1rem;
+    }
+
+    .header-text{
+        padding-right: 30px;
+    }
+
     
 }
 
 @media(max-width:360px){
+
     .header{
-        font-size: 1rem;
+      font-size: 1.1rem;
+    }
+
+    ul{
+      font-size: 1rem;
     }
 
 }
