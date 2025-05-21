@@ -401,8 +401,8 @@ a {
     }
 
     .short-text{
-        font-size:1.5rem;
-        margin-top: 5rem;
+        font-size:1.3rem;
+        margin-top: 4rem;
     }
     .contact-me{
         font-size:1rem;
@@ -422,10 +422,6 @@ a {
         cursor: pointer;
     }
 
-
-
-
-    
 }
 
 @media(max-width:360px){
@@ -438,7 +434,7 @@ a {
     }
 
     .short-text{
-        margin-top:3rem;
+        margin-top:2rem;
     }
 }
 
@@ -504,5 +500,11 @@ a {
     }
     .footer{
         height: 11dvh;
+    }
+}
+
+@media(max-width:480px){
+    .short-text{
+        font-size: 1.8rem;
     }
 }
