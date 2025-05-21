@@ -137,7 +137,7 @@ a {
 
 .footer{
     display:flex;
-    height:10vh;
+    height:11vh;
     justify-content: flex-end;
     margin-right:8rem;
     z-index: 3;
@@ -483,5 +483,26 @@ a {
     }
     .overlay-text {
         font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px){
+    section{
+        height: 100dvh;
+    }
+    .container{
+        height: 100dvh;
+    }
+    .two{
+        height: 100dvh;
+    }
+    .header{
+        height: 7dvh;
+    }
+    .middle{
+        height: 82dvh;
+    }
+    .footer{
+        height: 11dvh;
     }
 }
