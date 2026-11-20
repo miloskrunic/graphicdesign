@@ -1,105 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="wSfrG8nq07gKy4OP5Co_DkWragZsOeQaZNzeSjnN3Dg" />
-    <meta name="description" content="Milos Krunic portfolio">
-    <meta name="author" content="Miloš Krunić">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <meta property="og:title" content="Miloš Krunić — Portfolio" />
-    <meta property="og:description" content="Graphic designer & web developer" />
-    <meta property="og:image" content="https://miloskrunic.com/preview.jpg"  />
-    <meta property="og:url" content="https://miloskrunic.com" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Milos Krunic</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<!-- shared:head:start -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#141414">
+<meta name="color-scheme" content="dark">
+<meta name="author" content="Miloš Krunić">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:image" content="https://miloskrunic.com/preview.jpg">
+<meta property="og:image:alt" content="Miloš Krunić - graphic design and front-end development portfolio">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/site.css">
+<!-- shared:head:end -->
+<title>Miloš Krunić - Portfolio</title>
+<meta name="description" content="Graphic design and front-end development portfolio of Miloš Krunić.">
+<link rel="canonical" href="https://miloskrunic.com/">
+<meta property="og:title" content="Miloš Krunić - Portfolio">
+<meta property="og:description" content="Graphic design and front-end development portfolio of Miloš Krunić.">
+<meta property="og:url" content="https://miloskrunic.com/">
+<meta name="google-site-verification" content="wSfrG8nq07gKy4OP5Co_DkWragZsOeQaZNzeSjnN3Dg">
+<link rel="stylesheet" href="/style.css" data-page-style>
 </head>
-<body>
-    <div class="container">
-
-        <section class="one">
-            <canvas class="fluid-cursor"></canvas>
-            <div class="header">
-                <a href="index.html" class="header-text">Miloš Krunić</a>
-                <ul>
-                    <li><a href="index.html">Work</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="middle">
-                <div class="short-text hidden right">Hello, World! I'm Milos Krunic, graphic designer and front-end developer. I enjoy creating meaningful naratives through illustrations and 
-                    experimenting with new technologies
-                </div>
-                <div class="contact-me hidden right">→ <a href="contact.html" class="underline">Get In Touch</a></div>
-            </div>
-            <div class="footer hidden left">
-                Scroll To Discover ↓
-            </div>
-        </section>
-
-
-
-        <section class="two">
-            <div class="gallery">
-                <div class="gallery-item hidden massage">
-                    <img src="1.jpg" alt="Opis slike 1">
-                    <span class="overlay-text">Massage Center</span>
-                </div>
-                <div class="gallery-item hidden robotics">
-                    <img src="2.jpg" alt="Opis slike 2 ">
-                    <span class="overlay-text">Robotics Team</span>
-                </div>
-                <div class="gallery-item hidden architect">
-                    <img src="3.jpg" alt="Opis slike 3">
-                    <span class="overlay-text">Architect</span>
-                </div>
-                <div class="gallery-item hidden printing">
-                    <img src="4.jpg" alt="Opis slike 4">
-                    <span class="overlay-text">3D Printing Company</span>
-                </div>
-                <div class="gallery-item  hidden mua">
-                    <img src="5.jpg" alt="Opis slike 5">
-                    <span class="overlay-text">Professional Make-Up Artist</span>
-                </div>
-                <div class="gallery-item hidden villa">
-                    <img src="6.jpg" alt="Opis slike 6">
-                    <span class="overlay-text">AirB&B Villa</span>
-                </div>
-            </div>
-        </section>
-
-
-
-
-
-        <section class="three">
-            <div id="image-track" class="hidden left" data-mouse-down-at="0" data-prev-percentage="0">
-                <img class="image" src="11.jpg" alt="Poster1" draggable="false" />
-                <img class="image" src="22.jpg" alt="Poster2" draggable="false" />
-                <img class="image" src="33.jpg" alt="Poster3" draggable="false" />
-                <img class="image" src="44.jpg" alt="Poster4" draggable="false" />
-                <img class="image" src="55.jpg" alt="Poster5" draggable="false" />
-                <img class="image" src="66.jpg" alt="Poster6" draggable="false" />
-              </div>
-              <div class="scroll-indicator">
-                <div class="track">
-                  <div class="thumb"></div>
-                </div>
-              </div>
-        </section>
+<body data-page="work">
+<!-- shared:header:start -->
+<a class="skip-link" href="#page-content">Skip to content</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-name">Miloš Krunić</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="/#" aria-current="page">Work</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- shared:header:end -->
+<main id="page-content" data-page="work" tabindex="-1">
+<section class="hero" aria-labelledby="intro-title">
+  <canvas class="fluid-cursor" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <h1 class="hero-title" id="intro-title">Hello, World! I'm Miloš Krunić,</h1>
+    <p class="hero-description">graphic designer and front-end developer. I enjoy creating meaningful naratives through illustrations and experimenting with new technologies.</p>
+    <a href="/contact#/" class="hero-cta">
+      <span class="hero-cta__label">Get In Touch</span>
+      <span class="hero-cta__icon" aria-hidden="true">
+        <svg class="hero-cta__arrow" viewBox="0 0 90 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M1 12h87m-9-9 9 9-9 9" vector-effect="non-scaling-stroke"/></svg>
+      </span>
+    </a>
+  </div>
+  <a class="scroll-cue" href="#selected-work">Scroll to discover <span aria-hidden="true">↓</span></a>
+</section>
+<section class="gallery-section" id="selected-work" aria-labelledby="work-title">
+  <div class="section-inner">
+    <h2 class="section-title" id="work-title">Selected identities</h2>
+    <div class="gallery">
+<a href="/assets/images/1-1000.webp" class="gallery-item" data-lightbox data-lightbox-src="/assets/images/1-1000.webp" data-lightbox-caption="Massage Center" aria-label="Open Massage Center preview" draggable="false" data-reveal>
+  <picture><img src="/assets/images/1-640.webp" srcset="/assets/images/1-320.webp 320w, /assets/images/1-640.webp 640w, /assets/images/1-960.webp 960w, /assets/images/1-1000.webp 1000w" sizes="(min-width: 768px) 288px, calc((100vw - 64px) / 2)" width="1000" height="1000" alt="Moć dodira massage center logo" loading="lazy" decoding="async" draggable="false"></picture>
+  <span class="overlay-text">Massage Center</span>
+</a>
+<a href="/assets/images/2-1600.webp" class="gallery-item" data-lightbox data-lightbox-src="/assets/images/2-1600.webp" data-lightbox-caption="Robotics Team" aria-label="Open Robotics Team preview" draggable="false" data-reveal>
+  <picture><img src="/assets/images/2-640.webp" srcset="/assets/images/2-320.webp 320w, /assets/images/2-640.webp 640w, /assets/images/2-960.webp 960w, /assets/images/2-1600.webp 1600w" sizes="(min-width: 768px) 288px, calc((100vw - 64px) / 2)" width="3000" height="3000" alt="Puzzle Robotics team logo" loading="lazy" decoding="async" draggable="false"></picture>
+  <span class="overlay-text">Robotics Team</span>
+</a>
+<a href="/assets/images/3-1000.webp" class="gallery-item" data-lightbox data-lightbox-src="/assets/images/3-1000.webp" data-lightbox-caption="Architect" aria-label="Open Architect preview" draggable="false" data-reveal>
+  <picture><img src="/assets/images/3-640.webp" srcset="/assets/images/3-320.webp 320w, /assets/images/3-640.webp 640w, /assets/images/3-960.webp 960w, /assets/images/3-1000.webp 1000w" sizes="(min-width: 768px) 288px, calc((100vw - 64px) / 2)" width="1000" height="1000" alt="Eric Johansson architect logo" loading="lazy" decoding="async" draggable="false"></picture>
+  <span class="overlay-text">Architect</span>
+</a>
+<a href="/assets/images/4-1000.webp" class="gallery-item" data-lightbox data-lightbox-src="/assets/images/4-1000.webp" data-lightbox-caption="3D Printing Company" aria-label="Open 3D Printing Company preview" draggable="false" data-reveal>
+  <picture><img src="/assets/images/4-640.webp" srcset="/assets/images/4-320.webp 320w, /assets/images/4-640.webp 640w, /assets/images/4-960.webp 960w, /assets/images/4-1000.webp 1000w" sizes="(min-width: 768px) 288px, calc((100vw - 64px) / 2)" width="1000" height="1000" alt="DoID 3D printing company logo" loading="lazy" decoding="async" draggable="false"></picture>
+  <span class="overlay-text">3D Printing Company</span>
+</a>
+<a href="/assets/images/5-1000.webp" class="gallery-item" data-lightbox data-lightbox-src="/assets/images/5-1000.webp" data-lightbox-caption="Professional Makeup Artist" aria-label="Open Professional Makeup Artist preview" draggable="false" data-reveal>
+  <picture><img src="/assets/images/5-640.webp" srcset="/assets/images/5-320.webp 320w, /assets/images/5-640.webp 640w, /assets/images/5-960.webp 960w, /assets/images/5-1000.webp 1000w" sizes="(min-width: 768px) 288px, calc((100vw - 64px) / 2)" width="1000" height="1000" alt="Nadica Mandić makeup artist logo" loading="lazy" decoding="async" draggable="false"></picture>
+  <span class="overlay-text">Professional Makeup Artist</span>
+</a>
+<a href="/assets/images/6-1000.webp" class="gallery-item" data-lightbox data-lightbox-src="/assets/images/6-1000.webp" data-lightbox-caption="Villa van Voss" aria-label="Open Villa van Voss preview" draggable="false" data-reveal>
+  <picture><img src="/assets/images/6-640.webp" srcset="/assets/images/6-320.webp 320w, /assets/images/6-640.webp 640w, /assets/images/6-960.webp 960w, /assets/images/6-1000.webp 1000w" sizes="(min-width: 768px) 288px, calc((100vw - 64px) / 2)" width="1000" height="1000" alt="Villa van Voss accommodation logo" loading="lazy" decoding="async" draggable="false"></picture>
+  <span class="overlay-text">Villa van Voss</span>
+</a>
     </div>
-
-    <div class="lightbox" id="lightbox">
-        <img src="" alt="Prikazana slika">
+  </div>
+</section>
+<section class="poster-section" id="posters" aria-labelledby="posters-title">
+  <div class="section-inner">
+    <div class="section-heading">
+      <h2 class="section-title" id="posters-title">Poster explorations</h2>
+      <div class="poster-controls" hidden>
+        <button type="button" data-poster-prev aria-label="Previous posters" aria-controls="image-track">←</button>
+        <button type="button" data-poster-next aria-label="Next posters" aria-controls="image-track">→</button>
+      </div>
     </div>
+    <p class="visually-hidden" id="poster-help">Hold and drag to move the gallery and pan the images inside their frames. You can also use the arrow keys. Select a poster to open its preview.</p>
+    <div class="poster-track" id="image-track" tabindex="0" role="region" aria-label="Poster gallery" aria-describedby="poster-help">
+<a href="/assets/images/11-1200.webp" class="poster-item" data-lightbox data-lightbox-src="/assets/images/11-1200.webp" data-lightbox-caption="Belgrade at Night" aria-label="Open Belgrade at Night preview" draggable="false">
+  <picture><img src="/assets/images/11-640.webp" srcset="/assets/images/11-320.webp 320w, /assets/images/11-640.webp 640w, /assets/images/11-960.webp 960w, /assets/images/11-1200.webp 1200w" sizes="(min-width: 1100px) 320px, (min-width: 665px) 29vw, 192px" width="1200" height="1800" alt="Belgrade at Night collage poster with city landmarks" loading="lazy" decoding="async" draggable="false"></picture>
 
+</a>
+<a href="/assets/images/22-1200.webp" class="poster-item" data-lightbox data-lightbox-src="/assets/images/22-1200.webp" data-lightbox-caption="American Psycho" aria-label="Open American Psycho preview" draggable="false">
+  <picture><img src="/assets/images/22-640.webp" srcset="/assets/images/22-320.webp 320w, /assets/images/22-640.webp 640w, /assets/images/22-960.webp 960w, /assets/images/22-1200.webp 1200w" sizes="(min-width: 1100px) 320px, (min-width: 665px) 29vw, 192px" width="1200" height="1800" alt="American Psycho poster with a newspaper collage and red accents" loading="lazy" decoding="async" draggable="false"></picture>
 
-    <script src="javascript.js" defer></script>
+</a>
+<a href="/assets/images/33-1200.webp" class="poster-item" data-lightbox data-lightbox-src="/assets/images/33-1200.webp" data-lightbox-caption="Passion - Novak Đoković" aria-label="Open Passion - Novak Đoković preview" draggable="false">
+  <picture><img src="/assets/images/33-640.webp" srcset="/assets/images/33-320.webp 320w, /assets/images/33-640.webp 640w, /assets/images/33-960.webp 960w, /assets/images/33-1200.webp 1200w" sizes="(min-width: 1100px) 320px, (min-width: 665px) 29vw, 192px" width="1200" height="1800" alt="Novak Đoković holding a trophy on a yellow and green Passion poster" loading="lazy" decoding="async" draggable="false"></picture>
+
+</a>
+<a href="/assets/images/44-1200.webp" class="poster-item" data-lightbox data-lightbox-src="/assets/images/44-1200.webp" data-lightbox-caption="Wake Up" aria-label="Open Wake Up preview" draggable="false">
+  <picture><img src="/assets/images/44-640.webp" srcset="/assets/images/44-320.webp 320w, /assets/images/44-640.webp 640w, /assets/images/44-960.webp 960w, /assets/images/44-1200.webp 1200w" sizes="(min-width: 1100px) 320px, (min-width: 665px) 29vw, 192px" width="1200" height="1800" alt="Wake Up poster with a UFO and orange wireframe figure" loading="lazy" decoding="async" draggable="false"></picture>
+
+</a>
+<a href="/assets/images/55-1200.webp" class="poster-item" data-lightbox data-lightbox-src="/assets/images/55-1200.webp" data-lightbox-caption="Brutalism" aria-label="Open Brutalism preview" draggable="false">
+  <picture><img src="/assets/images/55-640.webp" srcset="/assets/images/55-320.webp 320w, /assets/images/55-640.webp 640w, /assets/images/55-960.webp 960w, /assets/images/55-1200.webp 1200w" sizes="(min-width: 1100px) 320px, (min-width: 665px) 29vw, 192px" width="1200" height="1800" alt="Brutalism poster with concrete towers and an orange wireframe figure" loading="lazy" decoding="async" draggable="false"></picture>
+
+</a>
+<a href="/assets/images/66-1200.webp" class="poster-item" data-lightbox data-lightbox-src="/assets/images/66-1200.webp" data-lightbox-caption="Knowledge" aria-label="Open Knowledge preview" draggable="false">
+  <picture><img src="/assets/images/66-640.webp" srcset="/assets/images/66-320.webp 320w, /assets/images/66-640.webp 640w, /assets/images/66-960.webp 960w, /assets/images/66-1200.webp 1200w" sizes="(min-width: 1100px) 320px, (min-width: 665px) 29vw, 192px" width="1200" height="1800" alt="Knowledge poster with a classical bust and an orange band across the eyes" loading="lazy" decoding="async" draggable="false"></picture>
+
+</a>
+    </div>
+  </div>
+<div class="poster-progress" aria-hidden="true"><span class="poster-thumb"></span></div>
+</section>
+<dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+  <button type="button" class="lightbox-close" aria-label="Close preview"><span aria-hidden="true">×</span></button>
+  <figure>
+    <img data-lightbox-image alt="">
+    <figcaption id="lightbox-caption" class="visually-hidden" data-lightbox-caption></figcaption>
+  </figure>
+</dialog>
+</main>
+<script type="module" src="/router.js"></script>
 </body>
 </html>
