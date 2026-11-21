@@ -57,7 +57,11 @@ body {
 body::before {
   position: fixed;
   z-index: -1;
-  inset: 0;
+  inset: 0 0 auto;
+  /* Paint the full mobile viewport before browser controls retract. */
+  block-size: 100vh;
+  block-size: 100lvh;
+  transform: translateZ(0);
   pointer-events: none;
   content: '';
   background:

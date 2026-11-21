@@ -63,3 +63,7 @@ Prijavljeni Android Chrome trzaj resava se uklanjanjem dinamicne dvh geometrije 
 ## Leva About navigacija - 21. novembar 2026.
 
 Konacan odobreni pravac kombinuje tacke za cetiri poglavlja sa ravnim vertikalnim lenjirom. Tanka prava linija i kratke poprecne crtice ostaju mirne; priguseni ljubicasti deo prati skrol. Aktivna tacka i naziv oznacavaju poglavlje. Prethodna magla, glow i vijuganje su odbijeni i uklonjeni. Nema numerisanih oboda, blur-a, bele svetle zone ili skaliranja tacaka. Telefon cuva usku kolonu i pristupacne nazive, sa visinom do320px; desktop prikazuje nazive uz lenjir i do360px visine. Visina je ogranicena raspolozivim prozorom. Cetiri linka, postojeci scroll model, desna skolska vremenska linija i sav sadrzaj ostaju isti. Bez nove biblioteke ili stalne animacione petlje. Lokalno, bez objave.
+
+## Mobilni Home povratak i pokrivanje pozadine - 21. novembar 2026.
+
+Dve ciljane CSS korekcije: hero snap oblast smanjena je za razliku velikog i malog viewporta (scroll-margin-block-end), uz nepromenjene tri100lvh scene. Povratak iz druge scene sada cilja sam vrh hero/headera umesto pozicije unutar prevelike snap oblasti. Zajednicka fiksna gradient pozadina dobija stabilnu veliku viewport visinu i svoj sloj kako bi pokrivala ekran dok Chrome sklanja kontrole. Originalni header polozaj, tekstovi, galerije, CTA, About lenjir i sve JS funkcije ostaju isti. Izmenjeni su samo site.css i style.css; lokalno bez commita/pusha/deploy-a.

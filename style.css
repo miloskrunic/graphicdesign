@@ -22,6 +22,8 @@ body[data-page='work'] > main {
   overflow: clip;
 }
 .hero {
+  /* A smaller snap area removes the mobile free-pan range above the hero's end. */
+  scroll-margin-block-end: calc(100svh - 100lvh);
   display: grid;
   align-content: center;
   padding: calc(var(--header-height) + 1rem) var(--gutter)
