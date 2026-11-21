@@ -59,3 +59,7 @@ Na izricit zahtev svi dimenzijski media-query uslovi pretvoreni su iz rem u px p
 ## Stabilna Home geometrija na telefonu - 21. novembar 2026.
 
 Prijavljeni Android Chrome trzaj resava se uklanjanjem dinamicne dvh geometrije iz tri Home snap scene. Koriste100lvh sa100vh fallback-om, pa Chrome toolbar ne pomera granice tokom gesta. Hero padding i scroll cue uzimaju u obzir stabilnu razliku velikog i malog viewporta da ostanu dostupni sa otvorenom browser trakom. Pratece visinske proporcije koriste lvh. Modal zadrzava90dvh da slika staje u stvarno vidljiv prozor. Obavezni native snap, tri scene, svi efekti/drag i ostale rute ostaju u istom obimu. Izmena je lokalna, bez commita/pusha; fizicki uredjaj treba ponovo proveriti posle objave.
+
+## Leva About navigacija - 21. novembar 2026.
+
+Konacan odobreni pravac kombinuje tacke za cetiri poglavlja sa ravnim vertikalnim lenjirom. Tanka prava linija i kratke poprecne crtice ostaju mirne; priguseni ljubicasti deo prati skrol. Aktivna tacka i naziv oznacavaju poglavlje. Prethodna magla, glow i vijuganje su odbijeni i uklonjeni. Nema numerisanih oboda, blur-a, bele svetle zone ili skaliranja tacaka. Telefon cuva usku kolonu i pristupacne nazive, sa visinom do320px; desktop prikazuje nazive uz lenjir i do360px visine. Visina je ogranicena raspolozivim prozorom. Cetiri linka, postojeci scroll model, desna skolska vremenska linija i sav sadrzaj ostaju isti. Bez nove biblioteke ili stalne animacione petlje. Lokalno, bez objave.

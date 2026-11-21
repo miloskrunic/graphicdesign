@@ -88,36 +88,56 @@
 .about-rail-inner {
   position: sticky;
   inset-block-start: max(1rem, env(safe-area-inset-top, 0px));
+  block-size: min(20rem, calc(100vh - 3rem));
+  block-size: min(20rem, calc(100svh - 3rem));
+  min-block-size: 11rem;
   isolation: isolate;
 }
 
 .about-rail-inner ol {
   position: relative;
   z-index: 1;
-  display: grid;
-  gap: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  block-size: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.about-rail-line {
+.about-rail-path {
   position: absolute;
   z-index: 0;
-  inset-block: 1.375rem;
-  inset-inline-start: 1.375rem;
-  inline-size: 1px;
-  overflow: hidden;
-  background-color: var(--about-rule);
+  inset-block-start: 1.375rem;
+  inset-inline-start: 0;
+  inline-size: 2.75rem;
+  block-size: calc(100% - 2.75rem);
+  overflow: visible;
+  pointer-events: none;
 }
 
-.about-rail-fill {
-  display: block;
-  inline-size: 100%;
-  block-size: 100%;
-  background-color: var(--accent, #bd7ad2);
-  transform: scaleY(var(--about-progress, 0));
-  transform-origin: center top;
+.about-rail-path path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.about-rail-base {
+  stroke: #654c71;
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+.about-rail-core {
+  stroke: url(#about-rail-light);
+  stroke-width: 1;
+  opacity: 0.75;
+}
+
+.about-rail-ticks {
+  stroke: url(#about-rail-light);
+  stroke-width: 1;
+  opacity: 0.55;
 }
 
 .about-rail-link {
@@ -125,28 +145,27 @@
   align-items: center;
   gap: 0.75rem;
   min-block-size: 2.75rem;
-  padding: 0.25rem;
+  padding: 0;
   border-radius: 0.25rem;
   color: var(--about-copy);
   text-decoration: none;
 }
 
-.about-rail-number {
+.about-rail-point {
   display: grid;
-  flex: 0 0 2.25rem;
+  flex: 0 0 2.75rem;
   place-items: center;
-  inline-size: 2.25rem;
-  block-size: 2.25rem;
-  border: 1px solid #80618a;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+}
+
+.about-rail-point::before {
+  inline-size: 5px;
+  block-size: 5px;
   border-radius: 50%;
-  background-color: #19151b;
-  color: var(--about-copy);
-  font-size: 0.75rem;
-  font-variant-numeric: tabular-nums;
-  transition:
-    border-color 0.25s ease,
-    color 0.25s ease,
-    background-color 0.25s ease;
+  background-color: #9b85a5;
+  content: '';
+  transition: background-color 0.25s ease;
 }
 
 /* The same four links stay vertical on phones, with accessible compact labels. */
@@ -165,11 +184,9 @@
   color: white;
 }
 
-.about-rail-link:hover .about-rail-number,
-.about-rail-link[data-active='true'] .about-rail-number {
-  border-color: var(--accent, #bd7ad2);
-  background-color: #38213f;
-  color: white;
+.about-rail-link:is(:hover, :focus-visible) .about-rail-point::before,
+.about-rail-link[data-active='true'] .about-rail-point::before {
+  background-color: var(--accent, #bd7ad2);
 }
 
 .about-chapters {
@@ -503,6 +520,8 @@
   }
   .about-rail-inner {
     inset-block-start: max(2rem, env(safe-area-inset-top, 0px));
+    block-size: min(22.5rem, calc(100vh - 4rem));
+    block-size: min(22.5rem, calc(100svh - 4rem));
   }
   .about-rail-label {
     position: static;
@@ -555,7 +574,7 @@
     transform: none;
   }
   .about-page :is(p, .about-tool-group, .about-job, .about-timeline-item),
-  .about-rail-number,
+  .about-rail-point::before,
   .about-step-index,
   .social-traka a {
     transition: none;

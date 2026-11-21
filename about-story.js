@@ -4,6 +4,7 @@ export function mountAboutStory(root, { signal, motion }) {
   if (!story) return () => {};
   const chapters = [...story.querySelectorAll('[data-about-chapter]')];
   const links = [...story.querySelectorAll('[data-about-link]')];
+  const railStops = [...story.querySelectorAll('#about-rail-light stop')];
   const education = story.querySelector('#education');
   const timeline = education.querySelector('.about-timeline');
   const steps = [...timeline.querySelectorAll('[data-about-step]')];
@@ -18,6 +19,15 @@ export function mountAboutStory(root, { signal, motion }) {
     frame = 0;
   let currentChapter = -1,
     currentStep = -1;
+  let railProgress = -1;
+
+  function updateRail(progress) {
+    if (progress === railProgress) return;
+    railProgress = progress;
+    // The path stays still; only the purple reading progress advances along it.
+    const offsets = [0, progress, clamp(progress + 0.06), 1];
+    railStops.forEach((stop, index) => stop.setAttribute('offset', offsets[index].toFixed(5)));
+  }
 
   function measure() {
     chapterStops = chapters.map((chapter) => chapter.getBoundingClientRect().top + scrollY);
@@ -46,6 +56,7 @@ export function mountAboutStory(root, { signal, motion }) {
           );
     const progress = clamp((chapter + fraction) / (chapters.length - 1));
     story.style.setProperty('--about-progress', progress.toFixed(5));
+    updateRail(progress);
     if (chapter !== currentChapter) {
       currentChapter = chapter;
       story.dataset.activeChapter = chapters[chapter].id;
