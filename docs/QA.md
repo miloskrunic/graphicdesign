@@ -141,3 +141,15 @@ Pozadina body::before dobija100lvh uz100vh fallback i translateZ(0), umesto auto
 Opsti lokalni suite58/58 prolazi na http://127.0.0.1:4173, izolovan Chrome158.0.8127.36 / Playwright1.65.1, DPR1, bez CPU/mreznog usporenja. Pokriveni layout svih ruta, snap, drag/pan, touch, history/reload/SPA, no-JS,200%tekst, CTA, lightbox, default axe i forma sa presretnutim zahtevima bez stvarnog slanja. git diff --check prolazi. Dokazi:docs/qa/mobile-chrome/standard/results.json, checks.json, snap-area.json i screenshotovi. Nema commita/pusha/deploy-a.
 
 Oslonci za snap oblast i prevelike scene: https://www.w3.org/TR/css-scroll-snap-1/#scroll-margin i https://www.w3.org/TR/css-scroll-snap-1/#snap-overflow .
+
+## Vidljivost mobilnog About lenjira - 21. novembar 2026.
+
+Tri produkciona izvora: about.css, about/index.html i about-story.js. Lokalni staticki preview http://127.0.0.1:4173/about/, izolovan Chrome158.0.8127.36 / Playwright1.65.1, bez CPU/mreznog usporenja. Postojeci About suite29/29 prolazi: sest viewporta, oba smera skrola i tri obrazovne etape, sidra/Back/Forward/reload/SPA, no-JS, reduced-motion,200%tekst i default axe390/1440px.
+
+Dodatno stvarno iscrtavanje na360x780 i390x844 DPR3 i1440x900 DPR1: unutar Education poglavlja pokazivac i predjeni fill prelaze vise od40CSSpx izmedju20% i80% citanja, vracaju se na isto mesto u obrnutom smeru, aktivna tacka ostaje8px bez senke, bez idle kretanja. Iz viewport PNG-a direktno proverene boje fill189/122/210 i kursora214/154/234, ne samo DOM atributi; svi uzorci prolaze i uz reduced-motion. Vizuelno pregledan mobilni screenshot. Ovo je emulirani DPR3, nije direktna potvrda osvetljenja/kontrasta fizickog telefona. Dokazi:docs/qa/about-rail-contrast/render-checks.json, screenshotovi i standard/results.json. node --check about-story.js i git diff --check prolaze. Nema commita/pusha/deploy-a ili stvarnog slanja forme.
+
+## About napredak preko crtica lenjira - 21. novembar 2026.
+
+Korisnik odbio zaseban pravougaoni marker i izabrao predlog3: naglasavanje nekoliko susednih crtica. about-rail-cursor je uklonjen iz HTML/CSS-a. Dekorativni SVG sloj istih crtica sa1.75px fokus bojom maskiran je uskom zonom sa mekim ivicama koja prati postojeci --about-progress. Nema novih JS kontrolera/petlji. Solidna2px linija i8px aktivna tacka ostaju radi mobilne vidljivosti.
+
+Lokalno http://127.0.0.1:4173/about/, Chrome158.0.8127.36 / Playwright1.65.1. Postojeci About QA29/29 prolazi. Na390x844 DPR3 i1440x900 DPR1 iz stvarnog viewport PNG-a pronadjeni svetliji pikseli crtica214/154/234 (tolerancija2); njihov centar prelazi vise od40CSSpx dok je aktivno isto Education poglavlje, i vraca se na isti centar pri obrnutom skrolu. Marker ne postoji, maska se primenjuje, reduced-motion takodje prolazi. Vizuelno pregledan mobilni kadar. Fizicki telefon nije direktno testiran. Dokazi:docs/qa/about-rail-ticks/render-checks.json, screenshotovi i standard/results.json. git diff --check prolazi. Ostale rute i desni timeline nisu menjani. Bez commita/pusha/deploy-a.

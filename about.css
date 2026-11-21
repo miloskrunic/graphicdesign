@@ -123,21 +123,49 @@
 }
 
 .about-rail-base {
-  stroke: #654c71;
+  stroke: #70567c;
   stroke-width: 1;
-  opacity: 0.5;
-}
-
-.about-rail-core {
-  stroke: url(#about-rail-light);
-  stroke-width: 1;
-  opacity: 0.75;
 }
 
 .about-rail-ticks {
-  stroke: url(#about-rail-light);
+  stroke: #90739d;
   stroke-width: 1;
-  opacity: 0.55;
+}
+
+/* Solid marks stay legible on small, high-density displays. */
+.about-rail-track {
+  position: absolute;
+  z-index: 0;
+  inset-block-start: 1.375rem;
+  inset-inline-start: calc(1.375rem - 1px);
+  inline-size: 2px;
+  block-size: calc(100% - 2.75rem);
+  pointer-events: none;
+}
+
+.about-rail-fill {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--accent, #bd7ad2);
+  transform: scaleY(var(--about-progress, 0));
+  transform-origin: top;
+}
+
+.about-rail-highlight {
+  --highlight-position: calc(var(--about-progress, 0) * 100%);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent calc(var(--highlight-position) - 24px),
+    #000 calc(var(--highlight-position) - 7px),
+    #000 calc(var(--highlight-position) + 7px),
+    transparent calc(var(--highlight-position) + 24px)
+  );
+}
+
+.about-rail-highlight path {
+  stroke: var(--focus, #d69aea);
+  stroke-width: 1.75;
 }
 
 .about-rail-link {
@@ -185,8 +213,14 @@
 }
 
 .about-rail-link:is(:hover, :focus-visible) .about-rail-point::before,
+.about-rail-link[data-past='true'] .about-rail-point::before,
 .about-rail-link[data-active='true'] .about-rail-point::before {
   background-color: var(--accent, #bd7ad2);
+}
+
+.about-rail-link[data-active='true'] .about-rail-point::before {
+  inline-size: 8px;
+  block-size: 8px;
 }
 
 .about-chapters {

@@ -67,3 +67,7 @@ Konacan odobreni pravac kombinuje tacke za cetiri poglavlja sa ravnim vertikalni
 ## Mobilni Home povratak i pokrivanje pozadine - 21. novembar 2026.
 
 Dve ciljane CSS korekcije: hero snap oblast smanjena je za razliku velikog i malog viewporta (scroll-margin-block-end), uz nepromenjene tri100lvh scene. Povratak iz druge scene sada cilja sam vrh hero/headera umesto pozicije unutar prevelike snap oblasti. Zajednicka fiksna gradient pozadina dobija stabilnu veliku viewport visinu i svoj sloj kako bi pokrivala ekran dok Chrome sklanja kontrole. Originalni header polozaj, tekstovi, galerije, CTA, About lenjir i sve JS funkcije ostaju isti. Izmenjeni su samo site.css i style.css; lokalno bez commita/pusha/deploy-a.
+
+## Citljiv napredak About lenjira - 21. novembar 2026.
+
+Na prijavu slabe vidljivosti na telefonu odobrena je funkcionalna dorada postojeceg ravnog lenjira. Predjeni put je2px puna akcent ljubicasta, sa postepenim naglasavanjem nekoliko susednih crtica na tacnoj poziciji skrola (korisnikov izbor3; poseban marker je odbijen i uklonjen). Aktivna tacka je8px, ostale5px; predjene tacke dobijaju akcent boju. Crtice i buduci deo imaju bolji kontrast. CSS fill i naglasene crtice koriste isto kontinuirano stanje kao poglavlja; uklonjen je prethodni SVG gradient. Bez svetleceg efekta, promene oblika, nove biblioteke ili izmene sadrzaja/desnog timeline-a/drugih ruta.
