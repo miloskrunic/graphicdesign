@@ -18,7 +18,7 @@ const out = resolve(process.env.QA_OUTPUT || resolve(root, 'docs/qa-about'));
 const chapterIds = ['my-story', 'education', 'experience', 'technologies'];
 const approvedBiography = [
   "My interest in graphic design started in childhood. My father worked as a photographer, so I grew up around photographs of landscapes and people.",
-  "As I started making my own designs, I found myself drawn to minimalism, bold symbols and strong colour combinations.",
+  "I'm a front-end developer and graphic designer working at SpotHopper. I'm a final-year Mechatronics student at the Faculty of Technical Sciences in Novi Sad, on the Robotics and Automation track.",
   "Web development became the ideal meeting point between those interests: programming logic, aesthetics and design. It brought the technical and creative parts of my work together.",
 ];
 const expectedSocials = [

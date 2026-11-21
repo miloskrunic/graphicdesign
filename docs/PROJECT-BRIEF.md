@@ -71,3 +71,11 @@ Dve ciljane CSS korekcije: hero snap oblast smanjena je za razliku velikog i mal
 ## Citljiv napredak About lenjira - 21. novembar 2026.
 
 Na prijavu slabe vidljivosti na telefonu odobrena je funkcionalna dorada postojeceg ravnog lenjira. Predjeni put je2px puna akcent ljubicasta, sa postepenim naglasavanjem nekoliko susednih crtica na tacnoj poziciji skrola (korisnikov izbor3; poseban marker je odbijen i uklonjen). Aktivna tacka je8px, ostale5px; predjene tacke dobijaju akcent boju. Crtice i buduci deo imaju bolji kontrast. CSS fill i naglasene crtice koriste isto kontinuirano stanje kao poglavlja; uklonjen je prethodni SVG gradient. Bez svetleceg efekta, promene oblika, nove biblioteke ili izmene sadrzaja/desnog timeline-a/drugih ruta.
+
+## Uvod biografije i tehnologije - 21. novembar 2026.
+
+Uvod glasi samo: I'm a front-end developer and graphic designer working at SpotHopper. Prica o fotografiji je ispod My background; recenica o minimalizmu, bold symbols i strong colour combinations je uklonjena. JavaScript / TypeScript su jedan red. Databases je ispod Automation u desnoj desktop koloni, uz isti mobilni redosled. Ostali tekstovi ostaju isti.
+
+## SpotHopper hijerarhija i dopuna biografije - 21. novembar 2026.
+
+Python/Docker automatizacija od juna2026 nalazi se kao h4 podnaslov unutar istog SpotHopper posla od avgusta2025. Nema druge firme ili zasebnog job unosa. Uvod je na naknadni zahtev prosiren na tri recenice uz prihvacenu prvu. My background sada objasnjava vezu porodicne fotografije i kasnijeg rada na kompoziciji/rasporedu u grafickom dizajnu. Ovo zamenjuje prethodnu kratku varijantu uvoda; ostali biografski podaci, lenjir i druge rute ostaju isti.

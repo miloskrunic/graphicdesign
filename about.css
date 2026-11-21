@@ -431,10 +431,34 @@
   line-height: 1.6;
 }
 
+.about-job-focus {
+  margin-block-start: 1.75rem;
+  padding-inline-start: 1.25rem;
+  border-inline-start: 1px solid var(--about-rule);
+}
+
+.about-job-focus h4 {
+  min-inline-size: 0;
+  margin: 0;
+  color: white;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
 .about-tool-groups {
   display: grid;
+  align-items: start;
   gap: 2rem;
   margin-block: 2rem;
+}
+
+.about-tool-stack {
+  display: grid;
+  align-content: start;
+  gap: 2rem;
+  min-inline-size: 0;
 }
 
 .about-tool-group {
