@@ -9,7 +9,7 @@ Korisnik je prvo odobrio čiste URL adrese i SPA navigaciju, zatim zatražio pre
 - Zadržati čist HTML/CSS/JavaScript i statičke rute. Bez migracije u Astro ili drugi framework.
 - Očuvati tamnu/ljubičastu osnovu, Montserrat/League Spartan, beli prostor logo galerije, crnu poster galeriju i korisnikove radove.
 - Čiste rute `/`, `/about/`, `/contact/`; stari HTML URL-ovi ostaju upotrebljivi.
-- Korisnikova naknadna izričita korekcija: početna namerno ima tačno TRI SEKCIJE pune visine ekrana (100vh / mobilni 100dvh), sa obaveznim scroll-snap poravnavanjem. To je ključna funkcija dizajna i ne sme se ukloniti u ime čišćenja CSS-a.
+- Korisnikova naknadna izričita korekcija: početna namerno ima tačno TRI SEKCIJE pune visine ekrana (100vh / 100lvh, stabilno pri promeni browser traka), sa obaveznim scroll-snap poravnavanjem. To je ključna funkcija dizajna i ne sme se ukloniti u ime čišćenja CSS-a.
 - Donja galerija namerno koristi held-drag: pomera se cela traka, a slike istovremeno klize unutar uskih kadrova (object-position/paralaks). Očuvati oba kretanja, proporcije kadrova i indikator.
 - Ujednačiti root pozadinu, mobilne ivice i navigaciju uz očuvanje tih funkcija. About/Contact imaju uobičajen rast sadržaja.
 - Ispraviti SPA povratak, skrol nakon refresh-a, vidljivost vraćenih galerija i očuvanje započete kontaktne forme.
@@ -55,3 +55,7 @@ Korisnik trazi umereno duzi potez za celu poster galeriju, sa izrazenijim smanje
 ## Citljivi breakpoint-i - 20. novembar 2026.
 
 Na izricit zahtev svi dimenzijski media-query uslovi pretvoreni su iz rem u px po osnovi 16px: ukupno osam blokova i devet uslova u site.css, style.css, about.css i contact.css. Zadrzani su isti numericki pragovi pri toj osnovi i postojeci uzlazni min-width pristup. Fontovi i razmaci nisu deo ove promene. Preporuka min-width zasnovana je na vec postojecoj mobilnoj osnovi CSS-a i javnim Google/MDN smernicama; max-width ostaje validan za ciljane izuzetke, bez planiranog prepisivanja kaskade.
+
+## Stabilna Home geometrija na telefonu - 21. novembar 2026.
+
+Prijavljeni Android Chrome trzaj resava se uklanjanjem dinamicne dvh geometrije iz tri Home snap scene. Koriste100lvh sa100vh fallback-om, pa Chrome toolbar ne pomera granice tokom gesta. Hero padding i scroll cue uzimaju u obzir stabilnu razliku velikog i malog viewporta da ostanu dostupni sa otvorenom browser trakom. Pratece visinske proporcije koriste lvh. Modal zadrzava90dvh da slika staje u stvarno vidljiv prozor. Obavezni native snap, tri scene, svi efekti/drag i ostale rute ostaju u istom obimu. Izmena je lokalna, bez commita/pusha; fizicki uredjaj treba ponovo proveriti posle objave.
