@@ -3,6 +3,29 @@ export function mountPosterGallery(root, { signal, motion }) {
   const section = root.querySelector('.poster-section');
   const track = section.querySelector('.poster-track');
   const images = [...track.querySelectorAll('img')];
+  // Give the leading posters priority, then prepare every horizontal neighbour.
+  let remainingPrepared = false;
+  function prepareImage(image, priority = 'low') {
+    image.fetchPriority = priority;
+    image.loading = 'eager';
+    return typeof image.decode === 'function' ? image.decode().catch(() => {}) : Promise.resolve();
+  }
+  function prepareRemaining() {
+    if (signal.aborted || remainingPrepared) return;
+    remainingPrepared = true;
+    for (const image of images.slice(2)) {
+      prepareImage(image, entryVisible ? 'auto' : 'low');
+    }
+  }
+  // Let the hero paint before starting gallery-only background work.
+  let imageFrame = requestAnimationFrame(() => {
+    imageFrame = requestAnimationFrame(() => {
+      imageFrame = 0;
+      if (signal.aborted) return;
+      Promise.all(images.slice(0, 2).map((image) => prepareImage(image, 'auto')))
+        .then(prepareRemaining);
+    });
+  });
   const thumb = section.querySelector('.poster-thumb');
   const previous = section.querySelector('[data-poster-prev]');
   const next = section.querySelector('[data-poster-next]');
@@ -78,6 +101,10 @@ export function mountPosterGallery(root, { signal, motion }) {
           (entries) => {
             const entry = entries[0];
             entryVisible = entry.isIntersecting && entry.intersectionRatio >= 0.85;
+            if (entryVisible) {
+              prepareRemaining();
+              images.forEach((image) => { image.fetchPriority = 'auto'; });
+            }
             if (entryVisible) queueEntryHint();
             else stopEntryHint();
           },
@@ -262,6 +289,7 @@ export function mountPosterGallery(root, { signal, motion }) {
   );
   render();
   return () => {
+    cancelAnimationFrame(imageFrame);
     entryObserver?.disconnect();
     stopEntryHint();
     cancelAnimationFrame(frame);
